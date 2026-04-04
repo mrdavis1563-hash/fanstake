@@ -1,1 +1,766 @@
-<html><head><style>body{background:#0D1B2A;color:white;font-family:sans-serif;text-align:center;padding:60px 20px;}h1{font-size:48px;}p{color:#7B8FA0;font-size:18px;max-width:600px;margin:20px auto;}.btn{background:#1B9AAA;color:white;padding:16px 32px;border:none;border-radius:8px;font-size:16px;cursor:pointer;margin-top:20px;display:inline-block;text-decoration:none;}</style></head><body><br><br><small style="color:#23C4D8;letter-spacing:3px;">THE CREATOR ECONOMY'S MISSING PIECE</small><h1>What if supporting your favorite creators <span style="color:#23C4D8;">paid you back?</span></h1><p>FanStake is the first platform where loyal fans earn real money from the creators they already support. Share in their success. Get rewarded for your loyalty.</p><a class="btn" href="mailto:MRDavis1563@gmail.com">Join the Waitlist</a><br><br><br><hr style="border-color:#162232;"><h2 style="margin-top:60px;">How It Works</h2><p><b style="color:#1B9AAA;">1. Creators Share</b> — Set a revenue percentage to share with loyal supporters.</p><p><b style="color:#1B9AAA;">2. Fans Earn</b> — Your Loyalty Score tracks engagement. Higher score = bigger cut.</p><p><b style="color:#1B9AAA;">3. Brands Fuel It</b> — Brands add fan budgets to creator deals.</p><hr style="border-color:#162232;"><h2 style="margin-top:60px;">Who It's For</h2><p><b style="color:white;">Creators:</b> Reward the fans who already promote you for free.</p><p><b style="color:white;">Fans:</b> Your loyalty finally has a dollar value.</p><p><b style="color:white;">Brands:</b> Activate financially invested promoters.</p><br><br><a class="btn" href="mailto:MRDavis1563@gmail.com">Get Early Access</a><br><br><br><p style="font-size:13px;margin-top:60px;">© 2026 FanStake. Where Fans Become Stakeholders.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FanStake — Fans Earn. Creators Win.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #080808;
+      --gold: #F5C842;
+      --gold-dim: #C9A020;
+      --white: #F2F0EB;
+      --gray: #888;
+      --card-bg: #111111;
+      --border: rgba(245,200,66,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-dim); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(245,200,66,0.12);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(68px, 10vw, 130px);
+      line-height: 0.95;
+      letter-spacing: 1px;
+      color: var(--white);
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-sub {
+      max-width: 560px;
+      margin: 28px auto 0;
+      font-size: 18px;
+      font-weight: 300;
+      color: #aaa;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-form {
+      margin-top: 48px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    /* ── WAITLIST FORM ── */
+    .waitlist-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .waitlist-form input,
+    .waitlist-form select {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .waitlist-form input::placeholder { color: #555; }
+    .waitlist-form input:focus,
+    .waitlist-form select:focus { border-color: var(--gold); }
+
+    .waitlist-form select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .waitlist-form select option { background: #1a1a1a; color: var(--white); }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-submit:hover { background: var(--gold-dim); }
+    .btn-submit:active { transform: scale(0.98); }
+
+    .form-note {
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none;
+      background: rgba(245,200,66,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 32px;
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .success-msg h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .success-msg p { color: #aaa; font-size: 14px; margin-top: 8px; }
+
+    /* ── STATS ── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding: 20px 24px 80px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .stat-label { font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── SECTION COMMON ── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+    }
+
+    .container { max-width: 1040px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      color: #888;
+      max-width: 520px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .how-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .how-card:hover {
+      border-color: rgba(245,200,66,0.4);
+      transform: translateY(-4px);
+    }
+
+    .how-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      color: rgba(245,200,66,0.08);
+      position: absolute;
+      top: 16px; right: 24px;
+      line-height: 1;
+    }
+
+    .how-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .how-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .how-card p { color: #888; font-size: 15px; line-height: 1.6; }
+
+    /* ── FOR WHOM ── */
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    @media (max-width: 640px) { .for-grid { grid-template-columns: 1fr; } }
+
+    .for-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 36px;
+    }
+
+    .for-card .tag {
+      display: inline-block;
+      background: rgba(245,200,66,0.1);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .for-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .for-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .for-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #aaa;
+      font-size: 15px;
+    }
+
+    .for-card ul li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── LOYALTY SCORE ── */
+    .loyalty-section {
+      background: linear-gradient(135deg, rgba(245,200,66,0.05) 0%, transparent 60%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .loyalty-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) { .loyalty-grid { grid-template-columns: 1fr; } }
+
+    .score-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .score-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .score-item .pct {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--gold);
+    }
+
+    .score-item .label { font-size: 12px; color: #666; margin-top: 4px; }
+
+    /* ── BRANDS ── */
+    .brands-section { text-align: center; }
+
+    .brand-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .brand-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* ── WAITLIST BOTTOM ── */
+    .waitlist-bottom {
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .waitlist-bottom .section-title { margin-bottom: 12px; }
+    .waitlist-bottom .section-sub { margin: 0 auto 40px; text-align: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      color: #444;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer a { color: #666; text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .hero h1 { font-size: 72px; }
+      .stats { gap: 28px; }
+      .form-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">FanStake</a>
+    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">🚀 Now Accepting Early Access</div>
+    <h1>Fans Earn.<br><span>Creators Win.</span></h1>
+    <p class="hero-sub">The first platform where loyal fans earn real money from the creators they help build. Your fandom is worth something — it's time you got paid.</p>
+
+    <div class="hero-form" id="waitlist">
+      <!-- WAITLIST FORM — Formspree POST -->
+      <form
+        class="waitlist-form"
+        id="fs-form"
+        action="https://formspree.io/f/xwvwenab"
+        method="POST"
+      >
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+        </div>
+        <select name="role" required>
+          <option value="" disabled selected>I am a…</option>
+          <option value="fan">Fan / Supporter</option>
+          <option value="creator">Creator / Influencer</option>
+          <option value="brand">Brand / Advertiser</option>
+          <option value="athlete">Athlete / Sports Figure</option>
+          <option value="talent_agency">Talent Agency / Manager</option>
+          <option value="investor">Investor</option>
+        </select>
+        <input type="text" name="company" placeholder="Company or creator handle (optional)" />
+        <!-- honeypot -->
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_subject" value="New FanStake Waitlist Signup" />
+        <button type="submit" class="btn-submit">Claim My Spot →</button>
+        <p class="form-note">No spam. Ever. We'll only reach out when we're ready for you.</p>
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-msg" id="success-msg">
+        <h3>You're In. 🏆</h3>
+        <p>Welcome to the FanStake founding community. We'll be in touch soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats container">
+    <div class="stat">
+      <div class="stat-num">$21B+</div>
+      <div class="stat-label">Influencer market by 2025</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0%</div>
+      <div class="stat-label">Fan share of creator revenue</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3x</div>
+      <div class="stat-label">Higher brand conversion via fans</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Model</div>
+      <h2 class="section-title">How FanStake Works</h2>
+      <p class="section-sub">Three parties. One ecosystem. Everyone wins when the creator wins.</p>
+
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">01</div>
+          <div class="how-icon">🎯</div>
+          <h3>Creators Share Revenue</h3>
+          <p>Creators allocate a percentage of their brand deal income into a Fan Revenue Pool — rewarding the community that built their platform.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">02</div>
+          <div class="how-icon">⚡</div>
+          <h3>Fans Earn a Loyalty Score</h3>
+          <p>Every watch, share, comment, and referral earns points. Your Loyalty Score determines your slice of the pool — early fans earn more.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">03</div>
+          <div class="how-icon">💰</div>
+          <h3>Brands Fund Fan Allocation</h3>
+          <p>Brands add a "Fan Allocation" budget to creator deals. Fans who engage with brand content earn directly — turning ads into income.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHO -->
+  <section>
+    <div class="container">
+      <div class="section-label">Built For</div>
+      <h2 class="section-title">Everyone In The Ecosystem</h2>
+      <div class="for-grid">
+        <div class="for-card">
+          <div class="tag">Creators</div>
+          <h3>Turn Fans Into an Army</h3>
+          <ul>
+            <li>Reward your most loyal supporters with real cash</li>
+            <li>Drive higher engagement on brand campaigns</li>
+            <li>Attract bigger brand deals with proven fan ROI</li>
+            <li>No new platform to manage — integrates with your existing social</li>
+          </ul>
+        </div>
+        <div class="for-card">
+          <div class="tag">Fans</div>
+          <h3>Get Paid for Your Loyalty</h3>
+          <ul>
+            <li>Earn a share of your creator's revenue every month</li>
+            <li>Early fans earn more — founding members get priority tiers</li>
+            <li>Real cash payouts, not points or discount codes</li>
+            <li>Track your Loyalty Score and estimated earnings in real time</li>
+          </ul>
+        </div>
+        <div class="for-card">
+          <div class="tag">Brands</div>
+          <h3>Unlock Fan-Level Distribution</h3>
+          <ul>
+            <li>Add a Fan Allocation to any creator deal</li>
+            <li>Fans who engage with your content earn — and convert</li>
+            <li>Measurable attribution tied to fan activity</li>
+            <li>3x higher conversion vs. standard influencer formats</li>
+          </ul>
+        </div>
+        <div class="for-card">
+          <div class="tag">Talent & Agencies</div>
+          <h3>A New Revenue Line</h3>
+          <ul>
+            <li>Build FanStake participation into client deals</li>
+            <li>Differentiate your talent roster with fan equity narratives</li>
+            <li>Athletes, musicians, podcasters — any loyal fanbase qualifies</li>
+            <li>White-glove onboarding for agency partners</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOYALTY SCORE -->
+  <section class="loyalty-section">
+    <div class="container">
+      <div class="loyalty-grid">
+        <div>
+          <div class="section-label">The Engine</div>
+          <h2 class="section-title">The Loyalty Score</h2>
+          <p class="section-sub" style="margin-bottom: 24px;">Your score is calculated across four dimensions. Every action you take with a creator builds your position — and your earnings potential.</p>
+          <p style="color: #666; font-size: 14px;">Scores update in real time. Early joiners lock in a Founding Member multiplier that never expires.</p>
+        </div>
+        <div class="score-visual">
+          <div class="score-item">
+            <div class="pct">40%</div>
+            <div class="label">Engagement Rate</div>
+          </div>
+          <div class="score-item">
+            <div class="pct">25%</div>
+            <div class="label">Tenure</div>
+          </div>
+          <div class="score-item">
+            <div class="pct">20%</div>
+            <div class="label">Referrals</div>
+          </div>
+          <div class="score-item">
+            <div class="pct">15%</div>
+            <div class="label">Content Interaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands-section">
+    <div class="container">
+      <div class="section-label">Industries We Serve</div>
+      <h2 class="section-title">Built for Every Vertical</h2>
+      <div class="brand-tags">
+        <div class="brand-tag">🎵 Music & Entertainment</div>
+        <div class="brand-tag">⚽ Sports & Athletes</div>
+        <div class="brand-tag">🎮 Gaming & Esports</div>
+        <div class="brand-tag">🎙️ Podcasters</div>
+        <div class="brand-tag">📱 Lifestyle & Beauty</div>
+        <div class="brand-tag">💪 Fitness & Wellness</div>
+        <div class="brand-tag">🍳 Food & Culinary</div>
+        <div class="brand-tag">🏀 Sports Media</div>
+        <div class="brand-tag">📰 Newsletters & Creators</div>
+        <div class="brand-tag">🎨 Art & Design</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST BOTTOM CTA -->
+  <section class="waitlist-bottom">
+    <div class="container">
+      <div class="section-label">Get Early Access</div>
+      <h2 class="section-title">The Founding Community<br>Fills Fast.</h2>
+      <p class="section-sub">Founding members lock in the highest Loyalty Score multipliers before we open to the public. Join now.</p>
+
+      <form
+        class="waitlist-form"
+        id="fs-form-bottom"
+        action="https://formspree.io/f/xwvwenab"
+        method="POST"
+        style="margin-top: 0;"
+      >
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+        </div>
+        <select name="role" required>
+          <option value="" disabled selected>I am a…</option>
+          <option value="fan">Fan / Supporter</option>
+          <option value="creator">Creator / Influencer</option>
+          <option value="brand">Brand / Advertiser</option>
+          <option value="athlete">Athlete / Sports Figure</option>
+          <option value="talent_agency">Talent Agency / Manager</option>
+          <option value="investor">Investor</option>
+        </select>
+        <input type="text" name="company" placeholder="Company or creator handle (optional)" />
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_subject" value="New FanStake Waitlist Signup" />
+        <button type="submit" class="btn-submit">Claim My Spot →</button>
+        <p class="form-note">No spam. Ever. We'll only reach out when we're ready for you.</p>
+      </form>
+
+      <div class="success-msg" id="success-msg-bottom" style="margin-top: 0;">
+        <h3>You're In. 🏆</h3>
+        <p>Welcome to the FanStake founding community. We'll be in touch soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom: 8px;">
+      <a href="mailto:MRDavis1563@gmail.com">MRDavis1563@gmail.com</a>
+    </p>
+    <p>© 2025 FanStake. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Handle both forms with AJAX so we show success state inline
+    function handleForm(formId, successId) {
+      const form = document.getElementById(formId);
+      const success = document.getElementById(successId);
+      if (!form) return;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = form.querySelector('.btn-submit');
+        btn.textContent = 'Submitting…';
+        btn.disabled = true;
+
+        try {
+          const data = new FormData(form);
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+          } else {
+            btn.textContent = 'Error — Try Again';
+            btn.disabled = false;
+          }
+        } catch (err) {
+          btn.textContent = 'Error — Try Again';
+          btn.disabled = false;
+        }
+      });
+    }
+
+    handleForm('fs-form', 'success-msg');
+    handleForm('fs-form-bottom', 'success-msg-bottom');
+
+    // Smooth scroll for nav CTA
+    document.querySelector('.nav-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
